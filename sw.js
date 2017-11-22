@@ -3,9 +3,4 @@ self.addEventListener('install', function(event) {
 });
 
 
-self.addEventListener('fetch', function(event) { 
-	if (/\.jpg$/.test(event.request.url)) { 
-		event.respondWith(fetch('unicorn.jpg’)); 
-	}
-});
 
