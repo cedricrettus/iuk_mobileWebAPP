@@ -2,11 +2,23 @@ const cacheName = 'latestNews-v1';
 const offlineUrl = 'offline-page.html';
 
 self.addEventListener('install', event => {
-  // TODO Arbeitsauftrag
+ 	self.skipWaiting(); 
+
+ 		event.waitUntil( 
+ 			caches.open(cacheName)
+ 			.then(cache => cache.addAll([
+				 './js/main.js',
+				 './images/newspaper.svg',
+				 './css/site.css',
+				 './header.html', 
+				 '/footer.html',
+				 'offline-page.html'
+ 			]))
+ 		);
 });
 
 self.addEventListener('activate', function(event) {
-	// TODO Arbeitsauftrag
+	self.clients.claim(); 
 });
 
 function timeout(delay) {
